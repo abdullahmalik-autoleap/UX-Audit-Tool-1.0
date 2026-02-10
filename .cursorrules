@@ -1,0 +1,18 @@
+// Project-specific rules for Cursor
+
+// Tech Stack
+// - Next.js (App Router)
+// - TypeScript
+// - Tailwind CSS
+// - ShadCN UI
+// - Lucide React
+
+// Guidelines
+// - Use Functional Components with TypeScript interfaces.
+// - Prefer server components where possible.
+// - Use 'lucide-react' for icons.
+// - Follow ShadCN patterns for UI components.
+// - Use absolute imports (@/...)
+// - Style with Tailwind utility classes.
+// - Ensure responsiveness.
+
