@@ -16,3 +16,156 @@
 // - Style with Tailwind utility classes.
 // - Ensure responsiveness.
 
+# Autoleap UI Design System (Web)
+
+A single unified spec for Autoleap UI foundations and components (ShadCN-based, compact enterprise density, Autoleap Green primary, Slate neutrals).
+
+## Foundations & Code Rules
+
+You are an expert Senior Frontend Engineer at Autoleap. You are responsible for ensuring that all code generated matches the Autoleap Design System, which is a specialized, compact version of ShadCN UI.
+
+---
+
+## 1. Core Visual Identity
+- **Brand Name:** Autoleap.
+- **Primary Color:** "Autoleap Green" (Mapping: Teal-700 / #0E7169).
+- **Secondary Colors:** Use the standard Tailwind Teal ramp for variations, but always refer to it as "Autoleap Green."
+- **Neutrals:** Strictly use the **Slate** scale.
+- **Data Grids/Tables:** Use **Slate-100** (#F1F5F9) for all cell and row borders.
+- **Backgrounds:** Use White (#FFFFFF) for cards/containers and Slate-50 for subtle page backgrounds.
+
+---
+
+## 2. Typography
+
+### 2.1 Primary UI Font (Figtree)
+- **Font Family:** Figtree is the mandatory primary UI font.
+- **Application:** `font-figtree` class.
+
+#### Font Sizes
+- 12px (xs): `text-xs` – Metadata, helper text, table headers
+- 14px (sm): `text-sm` – Standard body text, inputs, button text
+- 16px (base): `text-base` – Large body text, secondary headers
+- 18px (lg): `text-lg` – Section titles
+- 20px (xl): `text-xl` – Page sub-headers
+- 24px (2xl): `text-2xl` – Primary page titles
+- 30px (3xl): `text-3xl` – Dashboard KPIs or hero metrics
+
+#### Font Weights
+- **Regular (400):** Standard body copy
+- **Medium (500):** Form labels, emphasized row data
+- **SemiBold (600):** Buttons, sidebar items, sub-headings
+- **Bold (700):** Page titles, primary KPIs
+
+> **Rule:** Figtree is used for all human-readable UI text, navigation, labels, instructions, and actions.
+
+---
+
+### 2.2 Monospace / Data Font (Menlo)
+
+Menlo is introduced as a **utility data font**, not a brand or body font.
+
+- **Font Family:** Menlo
+- **Application:** `font-mono` or `font-menlo` (mapped in Tailwind config)
+- **Role:** System data, precision values, and machine-generated content
+
+#### When to Use Menlo
+Use Menlo **only** when the text represents **system-level data that must be read precisely, compared, copied, or verified**.
+
+Approved use cases:
+- Numeric values in data-dense tables (prices, quantities, durations)
+- IDs and identifiers (Work Order ID, Invoice #, VIN, Part numbers)
+- Timestamps and audit logs
+- System-generated values or calculated outputs
+- Inline data tokens within sentences (e.g., IDs, codes)
+- Before / after value comparisons
+- Configuration values, rules, or expressions
+
+Example:
+> Work Order **WO-239841** was successfully closed.
+
+#### When NOT to Use Menlo
+Menlo must **never** be used for:
+- Headings or titles
+- Form labels
+- Buttons or CTAs
+- Navigation
+- Paragraph or instructional text
+- Empty states or marketing content
+
+#### Size & Weight Guidelines
+- Recommended sizes: `text-xs`, `text-sm`, `text-base`
+- Default weight: Regular (400)
+- Avoid bold weights unless highlighting diffs or errors
+
+> **Rule:** Menlo represents the *system voice*. Figtree represents the *human voice*.
+
+---
+
+## 3. Component Architecture (Modified ShadCN)
+
+Follow ShadCN patterns with these strict overrides:
+
+### Buttons
+- **Shape:** Pill-shaped (`rounded-full`)
+- **Primary Button:** Autoleap Green-700 background, white text
+- **Secondary Button:** Slate-100 background, Slate-900 text
+- **Borders:** Avoid heavy borders except in outline variants
+
+Typography:
+- Font: **Figtree only** (Menlo is never allowed in buttons)
+
+---
+
+### General UI Elements
+- **Border Radius:** `rounded-lg` (8px)
+- **Elevation:** `shadow-sm` or 1px Slate-200 borders only
+
+---
+
+### Iconography
+- **Libraries:** Lucide React or Tabler Icons
+- **Stroke Width:** Must not exceed 1.5px
+
+---
+
+## 4. Layout & Density (Compact Rule)
+Autoleap is a data-heavy shop management platform.
+
+- **Grid:** 8px / 4px spacing system
+- **Tables:** Reduced vertical padding (`py-1.5` to `py-2`)
+- **Gaps:** Prefer `gap-2` or `gap-3`
+- **Navigation:** Active states use Autoleap Green
+
+---
+
+## 5. Technical Implementation Guidelines
+- Map `autoleap-green` to Teal-700 in `tailwind.config.js`
+- Define Menlo under `fontFamily.mono`
+- Use CSS variables for color tokens
+- Components: `@/components/ui`
+- Feature-based modular structure
+- Animations: Framer Motion, ≤200ms
+
+---
+
+## 6. Prompt & AI Prototyping Guidance
+
+When generating UI via AI tools:
+- Use **Figtree** for all headings, labels, buttons, and explanatory text
+- Use **Menlo** only for system data such as IDs, numeric values, timestamps, and logs
+- Never use Menlo for navigation or CTAs
+
+Example prompt snippet:
+> "Render all system-generated data in Menlo. Keep all user-facing text in Figtree."
+
+---
+
+## Design Intent
+Autoleap UI components must remain:
+- Compact
+- Predictable
+- Enterprise-grade
+- Optimized for dense data workflows
+
+Menlo enhances **data trust and precision** without impacting brand readability.
